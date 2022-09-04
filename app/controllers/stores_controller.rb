@@ -21,7 +21,8 @@ class StoresController < ApplicationController
 
   # POST /stores or /stores.json
   def create
-    @store = Store.new(store_params)
+    params.permit!
+    @store = Store.new(store_params.merge({user_id: current_user.id}))
 
     respond_to do |format|
       if @store.save
@@ -36,6 +37,7 @@ class StoresController < ApplicationController
 
   # PATCH/PUT /stores/1 or /stores/1.json
   def update
+    params.permit! if @store
     respond_to do |format|
       if @store.update(store_params)
         format.html { redirect_to store_url(@store), notice: "Store was successfully updated." }

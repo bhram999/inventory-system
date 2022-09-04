@@ -1,2 +1,7 @@
 <div id="<%= dom_id book %>">
+  <% if @book %>
+    <p>Name: <%=@book.name%></p>
+    <p>Author: <%=@book.author%></p>
+    <p>Stock: <%=@book.stock%></p>
+  <% end %>
 </div>
