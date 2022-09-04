@@ -107,3 +107,56 @@ Processing by StaticPagesController#landing_page as HTML
 Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 2889)
 
 
+  [1m[35m (56.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4772085294740160075)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20220904014502)
+  [1m[36mTRANSACTION (12.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220904014502"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-09-04 01:45:11.063150"], ["updated_at", "2022-09-04 01:45:11.063150"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4772085294740160075)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/static_pages/landing_page" for ::1 at 2022-09-03 19:46:07 -0600
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#landing_page as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/landing_page.html.erb within layouts/application
+  Rendered static_pages/landing_page.html.erb within layouts/application (Duration: 1.7ms | Allocations: 375)
+  Rendered layout layouts/application.html.erb (Duration: 69.1ms | Allocations: 36223)
+Completed 200 OK in 85ms (Views: 74.1ms | ActiveRecord: 0.0ms | Allocations: 41623)
+
+
+Started GET "/static_pages/landing_page" for ::1 at 2022-09-03 19:47:02 -0600
+Processing by StaticPagesController#landing_page as HTML
+Completed 401 Unauthorized in 10ms (ActiveRecord: 0.0ms | Allocations: 3886)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-09-03 19:47:03 -0600
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/bhargav.kota/.rvm/gems/ruby-3.0.0/bundler/gems/devise-6d32d2447cc0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/bhargav.kota/.rvm/gems/ruby-3.0.0/bundler/gems/devise-6d32d2447cc0/app/views/devise/shared/_links.html.erb (Duration: 1.8ms | Allocations: 862)
+  Rendered /Users/bhargav.kota/.rvm/gems/ruby-3.0.0/bundler/gems/devise-6d32d2447cc0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 12.3ms | Allocations: 4027)
+  Rendered layout layouts/application.html.erb (Duration: 29.9ms | Allocations: 17765)
+Completed 200 OK in 66ms (Views: 32.9ms | ActiveRecord: 4.7ms | Allocations: 25924)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-09-03 19:47:07 -0600
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/bhargav.kota/.rvm/gems/ruby-3.0.0/bundler/gems/devise-6d32d2447cc0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /Users/bhargav.kota/.rvm/gems/ruby-3.0.0/bundler/gems/devise-6d32d2447cc0/app/views/devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 241)
+  Rendered /Users/bhargav.kota/.rvm/gems/ruby-3.0.0/bundler/gems/devise-6d32d2447cc0/app/views/devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 227)
+  Rendered /Users/bhargav.kota/.rvm/gems/ruby-3.0.0/bundler/gems/devise-6d32d2447cc0/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2306)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 4607)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 5956)
+
+
