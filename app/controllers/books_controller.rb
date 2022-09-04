@@ -11,6 +11,12 @@ class BooksController < ApplicationController
   def show
   end
 
+  def search
+    searched_books = Book.search_by_term(params[:query])
+    search_results = searched_books.map{|b| b.attributes.merge({store_name: b.store.name})}
+    render json: search_results
+  end
+
   # GET /books/new
   def new
     @book = Book.new
@@ -26,7 +32,6 @@ class BooksController < ApplicationController
     @book = Book.new(book_params.merge({store_id: store_id}))
 
     respond_to do |format|
-      puts "======#{@store.inspect}"
       if @book.save
         format.html { redirect_to store_book_url(@store, @book), notice: "Book was successfully created." }
         format.json { render :show, status: :created, location: @book }
