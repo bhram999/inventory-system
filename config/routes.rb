@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :stores do
     get 'books/search'
+    get 'search_bar'
     resources :books
   end
   devise_for :users

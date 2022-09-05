@@ -1,5 +1,5 @@
-<div id="<%= dom_id store %>">
-  <% if @store %>
+<div id="<%= dom_id @store %>">
+  <% if @search_results %>
     <h1><%=@store.name%></h1>
     <ul class="nav justify-content-center">
       <li class="nav-item">
@@ -8,7 +8,7 @@
     </ul>
     <div class="container-lg my-5">
       <div class="row gy-5 row-cols-3">
-        <% @store.books.each do |book|%>
+        <% @search_results.each do |book|%>
           <div class="col">
             <div class="p-5 bg-secondary text-light text-center">
               <p> Book: <%= link_to "#{book.name}", store_book_path(store_id: @store.id, id: book.id), :class => "link-light" %> </p>

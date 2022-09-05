@@ -8,11 +8,18 @@ class StoresController < ApplicationController
 
   # GET /stores/1 or /stores/1.json
   def show
+    @query = Book.ransack(params[:q])
   end
 
   # GET /stores/new
   def new
     @store = Store.new
+  end
+
+  def search_bar
+    @store = Store.find(params[:store_id])
+    @query = @store.books.ransack(params[:q])
+    @search_results = @query.result(distint: true)
   end
 
   # GET /stores/1/edit

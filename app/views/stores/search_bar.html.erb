@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render "search_results" %>
+
+<div>
+  <%= link_to "Edit this store", edit_store_path(@store) %> |
+  <%= link_to "Back to dashboard", home_dashboard_path %> |
+  <%= link_to "New book", new_store_book_path(@store) %>
+
+  <%= button_to "Destroy this store", @store, method: :delete %>
+</div>
