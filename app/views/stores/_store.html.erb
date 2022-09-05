@@ -6,7 +6,7 @@
         <%= render "search" %>
       </li>
     </ul>
-    <% if @stores && !@stores.empty? %>
+    <% if !@store.books.empty? %>
       <div class="container-lg my-5">
           <div class="row gy-5 row-cols-3">
             <% @store.books.each do |book|%>
