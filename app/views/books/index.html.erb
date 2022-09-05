@@ -6,9 +6,10 @@
   <% @books.each do |book| %>
     <%= render book %>
     <p>
-      <%= link_to "Show this book", store_book_path(id: book.id) %>
+      <%= link_to "#{book.name}", store_book_path(id: book.id) %>
     </p>
   <% end %>
 </div>
 
 <%= link_to "New book", new_store_book_path %>
+<%= link_to "Back to stores", stores_path %>

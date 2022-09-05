@@ -6,7 +6,7 @@
   <% @stores.each do |store| %>
     <%= render store %>
     <p>
-      <%= link_to "Show this store", store %>
+      <%= link_to "#{store.name}", store %>
     </p>
   <% end %>
 </div>
