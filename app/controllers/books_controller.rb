@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_store, only: %i[index create show edit update destroy]
+  before_action :set_store, only: %i[index search create show edit update destroy]
   before_action :set_book, only: %i[show edit update destroy]
 
   # GET /books or /books.json
@@ -12,7 +12,8 @@ class BooksController < ApplicationController
   end
 
   def search
-    searched_books = Book.search_by_term(params[:query])
+    @books = @store.books.all
+    searched_books = @books.search_by_term(params[:query])
     search_results = searched_books.map{|b| b.attributes.merge({store_name: b.store.name})}
     render json: search_results
   end
