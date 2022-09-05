@@ -4,5 +4,6 @@ class HomeController < ApplicationController
   end
 
   def dashboard
+    @stores = current_user.stores.all
   end
 end

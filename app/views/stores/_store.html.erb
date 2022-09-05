@@ -1,5 +1,23 @@
 <div id="<%= dom_id store %>">
   <% if @store %>
-    <p>Name: <%=@store.name%></p>
+    <h1><%=@store.name%></h1>
+    <div class="container-lg my-5">
+      <div class="row gy-5 row-cols-3">
+        <% @store.books.each do |book|%>
+          <div class="col">
+            <div class="p-5 bg-secondary text-light text-center">
+              <p> Book: <%= link_to "#{book.name}", store_book_path(store_id: @store.id, id: book.id), :class => "link-light" %> </p>
+              <p> Author: <%= book.author %> </p>
+              <p> Stock: <%if book.stock == 0 %>
+                <span class="text-danger"> Out of stock </span> 
+                <% else %>
+                <span> <%= book.stock %> </span> 
+                <% end %> 
+              </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 </div>

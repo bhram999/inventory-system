@@ -2,13 +2,15 @@
 
 <h1>Stores</h1>
 
-<div id="stores">
-  <% @stores.each do |store| %>
-    <%= render store %>
-    <p>
-      <%= link_to "#{store.name}", store %>
-    </p>
-  <% end %>
+<div class="container-lg my-5">
+  <div class="row gy-5 row-cols-3">
+    <% @stores.each do |store|%>
+      <div class="col">
+        <div class="p-5 bg-secondary text-light text-center"><%= link_to "#{store.name}", store, :class => "link-light" %></div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
-<%= link_to "New store", new_store_path %>
+<%= link_to "Create store", new_store_path %> |
+<%= link_to "Back to dashboard", home_dashboard_path %>

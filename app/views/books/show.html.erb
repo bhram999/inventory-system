@@ -4,7 +4,7 @@
 
 <div>
   <%= link_to "Edit this book", edit_store_book_path(store_id: @store.id, id: @book.id) %> |
-  <%= link_to "Back to books", store_books_path %>
+  <%= link_to "Back to books", store_path(id: @store.id) %>
 
   <%= button_to "Destroy this book", store_book_path, method: :delete %>
 </div>

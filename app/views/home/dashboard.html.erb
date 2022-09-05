@@ -1,2 +1,13 @@
-<h1>StaticPages#dashboard</h1>
-<p>Find me in app/views/static_pages/dashboard.html.erb</p>
+<h1>Your Book Stores</h1>
+
+<div class="container-lg my-5">
+  <div class="row gy-5 row-cols-3">
+    <% @stores.each do |store|%>
+      <div class="col">
+        <div class="p-5 bg-secondary text-light text-center"><%= link_to "#{store.name}", store, :class => "link-light" %></div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to "Create store", new_store_path %>
